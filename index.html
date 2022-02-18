@@ -1,1 +1,91 @@
-<h1>why</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LogCalc For Janet</title>
+
+    
+
+        
+</head>
+
+
+<body onkeydown="if(event.keyCode==13){myFunction()}">
+
+    <style>
+        div {
+        font-size: 80px;
+    }
+    
+    input {
+        font-size: 40pt;
+        color: blue;
+        width: 120px;
+        height: 80px;
+    }
+
+
+    
+    button {
+        font-size: 40pt;
+        
+    }
+    
+    .result {
+        color:blueviolet;
+    }
+    </style>
+
+    <div>
+    
+    
+    <label for="x">X:</label>
+    <input type="text" id="x" name="x" onfocus="this.value=''"/>
+    <label for="y">=10*logY</label>
+    <input type="text" id="y" name="y" onfocus="this.value=''" />
+    
+    <button type="submit" onclick="myFunction()">Calc</button>
+    <!--<button onclick="document.getElementById('x').value = '';document.getElementById('y').value = ''; document.getElementById('display').value = 'Result'">Reset</button>-->
+
+    <button onclick="document.location.reload()">Reset</button>
+    
+    
+    <h1 class="result" id="display">Result</h1>
+    
+    
+    
+    </div>
+
+
+    
+    <script>
+    
+    
+    
+        function myFunction() {
+        var x = document.getElementById("x").value;
+        var y = document.getElementById("y").value;
+    
+        if(x > y) {
+            var y = Math.pow(10, (x / 10));
+            document.getElementById("display").innerHTML = y;
+        }
+    
+        else {
+            var x = 10 * Math.log10(y);
+            document.getElementById("display").innerHTML = x;
+        }
+    
+        
+    }
+    
+    
+    
+    </script>
+
+
+
+
+</body>
+</html>
