@@ -11,7 +11,7 @@
 </head>
 
 
-<body onkeydown="if(event.keyCode==13){myFunction()}">
+<body onkeydown="if(event.keyCode==13){myFunction(); myFunction2()}">
 
     <style>
         div {
@@ -28,60 +28,87 @@
 
     
     button {
-        font-size: 40pt;
+        font-size: 40px;
         
     }
     
     .result {
+        font-size: 60px;
         color:blueviolet;
     }
     </style>
 
+    <div>   
+    <label for="x">X:</label>
+    <input type="text" id="x" name="x"  onfocus="this.value=''"/>
+    <label for="y">=10*logY</label>
+    <input type="text" id="y" name="y"  onfocus="this.value=''" />
+    
+    <button type="submit" onclick="myFunction()">Calc</button>
+    <button onclick="document.location.reload()">Reset</button>
+    <h1 class="result" id="display1">Result</h1>
+    
+    <hr>
+
+    </div>
+
     <div>
     
     
-    <label for="x">X:</label>
-    <input type="text" id="x" name="x" onfocus="this.value=''"/>
-    <label for="y">=10*logY</label>
-    <input type="text" id="y" name="y" onfocus="this.value=''" />
-    
-    <button type="submit" onclick="myFunction()">Calc</button>
-    <!--<button onclick="document.getElementById('x').value = '';document.getElementById('y').value = ''; document.getElementById('display').value = 'Result'">Reset</button>-->
-
-    <button onclick="document.location.reload()">Reset</button>
-    
-    
-    <h1 class="result" id="display">Result</h1>
-    
-    
-    
+        <label for="hex">HEX:</label>
+        <input type="text" id="hex" name="hex" onfocus="this.value=''"/>
+        <label for="DEC">=DEC:</label>
+        <input type="text" id="dec" name="dec" onfocus="this.value=''" />
+        
+        <button type="submit1" onclick="myFunction2()">Calc</button>
+        <button onclick="document.location.reload()">Reset</button>
+        <h1 class="result" id="display2">Result</h1>
+        <hr>
+            
     </div>
 
 
     
+    <div class="result">
+        
+        
+    </div>
+    
+
     <script>
-    
-    
-    
         function myFunction() {
         var x = document.getElementById("x").value;
         var y = document.getElementById("y").value;
     
         if(x > y) {
             var y = Math.pow(10, (x / 10));
-            document.getElementById("display").innerHTML = y;
+            document.getElementById("display1").innerHTML = y;
         }
     
         else {
             var x = 10 * Math.log10(y);
-            document.getElementById("display").innerHTML = x;
+            document.getElementById("display1").innerHTML = x;
         }
     
         
     }
-    
-    
-    
+    </script>
+
+    <script>
+            function myFunction2() {
+            var hex = document.getElementById("hex").value;
+            var dec = document.getElementById("dec").value;
+
+            if(hex > dec) {
+                var dec = parseInt(hex, 16);
+                document.getElementById("display2").innerHTML = dec;
+            }
+
+            else {
+                var hex = Number(dec).toString(16);
+                document.getElementById("display2").innerHTML = hex.toUpperCase();
+            }
+        }
     </script>
 
 
